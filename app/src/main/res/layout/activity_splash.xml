@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Background -->
+    <!-- Background full screen -->
     <ImageView
         android:id="@+id/splashBackground"
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:scaleType="centerCrop"
         android:contentDescription="@null" />
 
-    <!-- Container untuk card -->
+    <!-- Container Card -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,49 +21,78 @@
         android:layout_centerInParent="true"
         android:padding="16dp">
 
-        <!-- Card CoreArsitek -->
+        <!-- Card Core Arsitek -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardCoreArsitek"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#80FFFFFF">
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#80FFFFFF"
+            android:layout_gravity="center"
+            android:padding="10dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:padding="10dp"
-                android:src="@drawable/corearsitek_card"
-                android:contentDescription="@null" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- Logo -->
+                <ImageView
+                    android:id="@+id/logoCoreArsitek"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/corearsitek_card"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null" />
+
+                <!-- Shine overlay -->
+                <ImageView
+                    android:id="@+id/shineArsitek"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shine_effect"
+                    android:alpha="0.3"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card CoreStudio -->
+        <!-- Card Core Studio -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardCoreStudio"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#80FFFFFF">
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#80FFFFFF"
+            android:layout_gravity="center"
+            android:padding="10dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:padding="10dp"
-                android:src="@drawable/corestudio_card"
-                android:contentDescription="@null" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- Logo -->
+                <ImageView
+                    android:id="@+id/logoCoreStudio"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/corestudio_card"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null" />
+
+                <!-- Shine overlay -->
+                <ImageView
+                    android:id="@+id/shineStudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shine_effect"
+                    android:alpha="0.3"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
 </RelativeLayout>

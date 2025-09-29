@@ -1,31 +1,21 @@
-package com.nunucore.corearsitek;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.cardview.widget.CardView;
+...
 
-import androidx.appcompat.app.AppCompatActivity;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_splash);
 
-public class SplashActivity extends AppCompatActivity {
+    // Shine untuk Core Arsitek
+    ImageView shineArsitek = findViewById(R.id.shineArsitek);
+    Animation animArsitek = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
+    shineArsitek.startAnimation(animArsitek);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
-        CardView cardCoreArsitek = findViewById(R.id.cardCoreArsitek);
-        CardView cardCoreStudio = findViewById(R.id.cardCoreStudio);
-
-        cardCoreArsitek.setOnClickListener(v -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            intent.putExtra("url", "https://corearsitek.id");
-            startActivity(intent);
-        });
-
-        cardCoreStudio.setOnClickListener(v -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            intent.putExtra("url", "https://corestudio.id");
-            startActivity(intent);
-        });
-    }
+    // Shine untuk Core Studio
+    ImageView shineStudio = findViewById(R.id.shineStudio);
+    Animation animStudio = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
+    shineStudio.startAnimation(animStudio);
 }
