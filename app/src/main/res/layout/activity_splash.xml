@@ -50,10 +50,10 @@
                 <!-- Shine overlay -->
                 <ImageView
                     android:id="@+id/shineArsitek"
-                    android:layout_width="match_parent"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/shine_effect"
-                    android:alpha="0.3"
+                    android:alpha="0.4"
                     android:scaleType="fitXY" />
             </FrameLayout>
         </androidx.cardview.widget.CardView>
@@ -86,10 +86,10 @@
                 <!-- Shine overlay -->
                 <ImageView
                     android:id="@+id/shineStudio"
-                    android:layout_width="match_parent"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/shine_effect"
-                    android:alpha="0.3"
+                    android:alpha="0.4"
                     android:scaleType="fitXY" />
             </FrameLayout>
         </androidx.cardview.widget.CardView>
