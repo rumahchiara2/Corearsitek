@@ -23,24 +23,22 @@
 
         <!-- Card Core Arsitek -->
         <FrameLayout
+            android:id="@+id/cardCoreArsitek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
 
-            <!-- BlurView (efek kaca) -->
             <eightbitlab.com.blurview.BlurView
                 android:id="@+id/blurCardArsitek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.9" />
 
-            <!-- Isi Card -->
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
 
-                <!-- Logo -->
                 <ImageView
                     android:id="@+id/logoCoreArsitek"
                     android:layout_width="wrap_content"
@@ -51,37 +49,34 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@null" />
 
-                <!-- Shine -->
                 <ImageView
                     android:id="@+id/shineArsitek"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:src="@drawable/shine_effect"
                     android:alpha="0.40"
-                    android:scaleType="fitXY" 
-                    android:visibility="visible"/>
+                    android:scaleType="fitXY"
+                    android:visibility="visible" />
             </FrameLayout>
         </FrameLayout>
 
         <!-- Card Core Studio -->
         <FrameLayout
+            android:id="@+id/cardCoreStudio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <!-- BlurView (efek kaca) -->
             <eightbitlab.com.blurview.BlurView
                 android:id="@+id/blurCardStudio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.9" />
 
-            <!-- Isi Card -->
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
 
-                <!-- Logo -->
                 <ImageView
                     android:id="@+id/logoCoreStudio"
                     android:layout_width="wrap_content"
@@ -92,15 +87,14 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="@null" />
 
-                <!-- Shine -->
                 <ImageView
                     android:id="@+id/shineStudio"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:src="@drawable/shine_effect"
                     android:alpha="0.40"
-                    android:scaleType="fitXY" 
-                    android:visibility="visible"/>
+                    android:scaleType="fitXY"
+                    android:visibility="visible" />
             </FrameLayout>
         </FrameLayout>
     </LinearLayout>

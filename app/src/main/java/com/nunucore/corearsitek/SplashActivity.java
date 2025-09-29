@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
         ImageView shineStudio = findViewById(R.id.shineStudio);
         startShineAnimation(shineStudio);
 
-        // ✅ Klik card CoreArsitek
+        // Klik card CoreArsitek
         View cardArsitek = findViewById(R.id.cardCoreArsitek);
         cardArsitek.setOnClickListener(v -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // ✅ Klik card CoreStudio
+        // Klik card CoreStudio
         View cardStudio = findViewById(R.id.cardCoreStudio);
         cardStudio.setOnClickListener(v -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
