@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void setupBlur(BlurView blurView) {
-        float radius = 20f;
+        float radius = 30f;
 
         // Root view harus ViewGroup
         ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
