@@ -2,7 +2,7 @@ package com.nunucore.corearsitek;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.CardView;
+import androidx.cardview.widget.CardView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
