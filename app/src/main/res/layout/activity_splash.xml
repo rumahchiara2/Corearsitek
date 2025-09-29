@@ -94,11 +94,12 @@
                 <!-- Shine -->
                 <ImageView
                     android:id="@+id/shineStudio"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:src="@drawable/shine_effect"
                     android:alpha="0.35"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY" 
+                    android:visibility="visible"/>
             </FrameLayout>
         </FrameLayout>
     </LinearLayout>

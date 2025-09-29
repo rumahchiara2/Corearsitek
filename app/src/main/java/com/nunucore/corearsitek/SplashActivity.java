@@ -54,13 +54,13 @@ public class SplashActivity extends AppCompatActivity {
     private void startShineAnimation(ImageView shineView) {
         // Animasi translate diagonal (miring 45°)
         TranslateAnimation anim = new TranslateAnimation(
-                Animation.RELATIVE_TO_PARENT, -1f, // dari luar kiri
-                Animation.RELATIVE_TO_PARENT, 1f,  // keluar kanan
-                Animation.RELATIVE_TO_PARENT, -1f, // dari atas
-                Animation.RELATIVE_TO_PARENT, 1f   // keluar bawah
+                Animation.RELATIVE_TO_SELF, -1.5f,
+                Animation.RELATIVE_TO_SELF, 1.5f,
+                Animation.RELATIVE_TO_SELF, -1.5f,
+                Animation.RELATIVE_TO_SELF, 1.5f
         );
         anim.setDuration(2500);
         anim.setRepeatCount(Animation.INFINITE);
+        anim.setRepeatMode(Animation.RESTART);
         shineView.startAnimation(anim);
-    }
 }
