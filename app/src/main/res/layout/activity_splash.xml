@@ -24,14 +24,14 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardCoreArsitek"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
-            app:cardBackgroundColor="#80FFFFFF">
+            app:cardBackgroundColor="#80FFFFFF"
+            android:layout_gravity="center"
+            android:padding="30dp">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -43,13 +43,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardCoreStudio"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
-            app:cardBackgroundColor="#80FFFFFF">
+            app:cardBackgroundColor="#80FFFFFF"
+            android:layout_gravity="center"
+            android:padding="30dp">
 
             <ImageView
                 android:layout_width="match_parent"
