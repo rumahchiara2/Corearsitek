@@ -40,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
         float radius = 20f;
 
         // Root view harus ViewGroup
-        ViewGroup rootView = findViewById(android.R.id.content);
+        ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
         Drawable windowBackground = getWindow().getDecorView().getBackground();
 
         blurView.setupWith(rootView)
@@ -52,7 +52,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startShineAnimation(ImageView shineView) {
-        // Animasi translate diagonal (miring 45°)
+        // translate dari kiri-atas ke kanan-bawah melewati view
         TranslateAnimation anim = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, -1.5f,
                 Animation.RELATIVE_TO_SELF, 1.5f,
@@ -62,5 +62,7 @@ public class SplashActivity extends AppCompatActivity {
         anim.setDuration(2500);
         anim.setRepeatCount(Animation.INFINITE);
         anim.setRepeatMode(Animation.RESTART);
+
         shineView.startAnimation(anim);
+    }
 }
