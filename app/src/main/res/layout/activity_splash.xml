@@ -1,84 +1,103 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@mipmap/splash_bg">
+    android:layout_height="match_parent">
 
-    <!-- Card dengan BlurView -->
-    <FrameLayout
-        android:layout_width="wrap_content"
+    <!-- Background full screen -->
+    <ImageView
+        android:id="@+id/splashBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/splash_bg"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- Container Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:padding="16dp">
 
-        <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blurCardArsitek"
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            android:layout_gravity="center"
-            android:alpha="0.9" />
-
+        <!-- Card Core Arsitek -->
         <FrameLayout
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            android:padding="16dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
-            <!-- Logo -->
-            <ImageView
-                android:id="@+id/logoCoreArsitek"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/corearsitek_card"
-                android:scaleType="fitCenter"
-                android:contentDescription="@null" />
+            <!-- BlurView sebagai background kaca -->
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurCardArsitek"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.9" />
 
-            <!-- Shine overlay -->
-            <ImageView
-                android:id="@+id/shineArsitek"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/shine_effect"
-                android:alpha="0.25"
-                android:scaleType="fitXY" />
+            <!-- Isi Card -->
+            <FrameLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <!-- Logo -->
+                <ImageView
+                    android:id="@+id/logoCoreArsitek"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/corearsitek_card"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null" />
+
+                <!-- Shine overlay -->
+                <ImageView
+                    android:id="@+id/shineArsitek"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shine_effect"
+                    android:alpha="0.25"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
         </FrameLayout>
-    </FrameLayout>
 
-    <!-- Sama untuk Core Studio -->
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blurCardStudio"
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            android:layout_gravity="center"
-            android:alpha="0.9" />
-
+        <!-- Card Core Studio -->
         <FrameLayout
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            android:padding="16dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <!-- Logo -->
-            <ImageView
-                android:id="@+id/logoCoreStudio"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/corestudio_card"
-                android:scaleType="fitCenter"
-                android:contentDescription="@null" />
+            <!-- BlurView sebagai background kaca -->
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurCardStudio"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.9" />
 
-            <!-- Shine overlay -->
-            <ImageView
-                android:id="@+id/shineStudio"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/shine_effect"
-                android:alpha="0.25"
-                android:scaleType="fitXY" />
+            <!-- Isi Card -->
+            <FrameLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <!-- Logo -->
+                <ImageView
+                    android:id="@+id/logoCoreStudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/corestudio_card"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null" />
+
+                <!-- Shine overlay -->
+                <ImageView
+                    android:id="@+id/shineStudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shine_effect"
+                    android:alpha="0.25"
+                    android:scaleType="fitXY" />
+            </FrameLayout>
         </FrameLayout>
-    </FrameLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

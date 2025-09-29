@@ -2,13 +2,12 @@ package com.nunucore.corearsitek;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
@@ -42,11 +41,11 @@ public class SplashActivity extends AppCompatActivity {
     private void setupBlur(BlurView blurView) {
         float radius = 20f;
 
-        View decorView = getWindow().getDecorView();
-        View rootView = decorView.findViewById(android.R.id.content);
-        Drawable windowBackground = decorView.getBackground();
+        // Root view harus ViewGroup
+        ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
+        Drawable windowBackground = getWindow().getDecorView().getBackground();
 
-        blurView.setupWith((View) rootView)
+        blurView.setupWith(rootView)
                 .setFrameClearDrawable(windowBackground)
                 .setBlurAlgorithm(new RenderScriptBlur(this))
                 .setBlurRadius(radius)
