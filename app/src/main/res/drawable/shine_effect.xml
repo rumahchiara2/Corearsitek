@@ -5,10 +5,13 @@
         android:type="linear"
         android:angle="0"
         android:startColor="#00FFFFFF"
-        android:centerColor="#80FFFFFF"
+        android:centerColor="#66FFFFFF"
         android:endColor="#00FFFFFF" />
 
     <size
         android:width="80dp"
-        android:height="200dp" /> 
+        android:height="200dp" />
+
+    <corners android:radius="20dp" />
+
 </shape>
