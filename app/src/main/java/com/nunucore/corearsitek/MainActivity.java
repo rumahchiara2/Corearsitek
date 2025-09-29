@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,16 +13,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        webView = new WebView(this);
-        setContentView(webView);
+        webView = findViewById(R.id.webView);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://corearsitek.id");
+
+        // Ambil URL dari intent
+        String url = getIntent().getStringExtra("url");
+        if (url != null) {
+            webView.loadUrl(url);
+        }
     }
 
     @Override
