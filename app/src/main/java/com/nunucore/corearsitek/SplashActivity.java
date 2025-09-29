@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,20 +29,18 @@ public class SplashActivity extends AppCompatActivity {
 
         // Shine untuk Core Arsitek
         ImageView shineArsitek = findViewById(R.id.shineArsitek);
-        Animation animArsitek = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
-        shineArsitek.startAnimation(animArsitek);
+        startShineAnimation(shineArsitek);
 
         // Shine untuk Core Studio
         ImageView shineStudio = findViewById(R.id.shineStudio);
-        Animation animStudio = AnimationUtils.loadAnimation(this, R.anim.shine_animation);
-        shineStudio.startAnimation(animStudio);
+        startShineAnimation(shineStudio);
     }
 
     private void setupBlur(BlurView blurView) {
         float radius = 20f;
 
         // Root view harus ViewGroup
-        ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
+        ViewGroup rootView = findViewById(android.R.id.content);
         Drawable windowBackground = getWindow().getDecorView().getBackground();
 
         blurView.setupWith(rootView)
@@ -51,5 +49,18 @@ public class SplashActivity extends AppCompatActivity {
                 .setBlurRadius(radius)
                 .setBlurAutoUpdate(true)
                 .setHasFixedTransformationMatrix(true);
+    }
+
+    private void startShineAnimation(ImageView shineView) {
+        // Animasi translate diagonal (miring 45°)
+        TranslateAnimation anim = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, -1f, // dari luar kiri
+                Animation.RELATIVE_TO_PARENT, 1f,  // keluar kanan
+                Animation.RELATIVE_TO_PARENT, -1f, // dari atas
+                Animation.RELATIVE_TO_PARENT, 1f   // keluar bawah
+        );
+        anim.setDuration(2500);
+        anim.setRepeatCount(Animation.INFINITE);
+        shineView.startAnimation(anim);
     }
 }
