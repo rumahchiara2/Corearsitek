@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Background full screen -->
+    <!-- Background -->
     <ImageView
         android:id="@+id/splashBackground"
         android:layout_width="match_parent"
@@ -27,30 +27,31 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
 
-            <!-- BlurView sebagai background kaca -->
+            <!-- BlurView (efek kaca) -->
             <eightbitlab.com.blurview.BlurView
                 android:id="@+id/blurCardArsitek"
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.9" />
 
             <!-- Isi Card -->
             <FrameLayout
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
 
                 <!-- Logo -->
                 <ImageView
                     android:id="@+id/logoCoreArsitek"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
+                    android:maxWidth="260dp"
                     android:src="@drawable/corearsitek_card"
                     android:scaleType="fitCenter"
                     android:contentDescription="@null" />
 
-                <!-- Shine overlay -->
+                <!-- Shine -->
                 <ImageView
                     android:id="@+id/shineArsitek"
                     android:layout_width="match_parent"
@@ -66,30 +67,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <!-- BlurView sebagai background kaca -->
+            <!-- BlurView (efek kaca) -->
             <eightbitlab.com.blurview.BlurView
                 android:id="@+id/blurCardStudio"
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.9" />
 
             <!-- Isi Card -->
             <FrameLayout
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
 
                 <!-- Logo -->
                 <ImageView
                     android:id="@+id/logoCoreStudio"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
+                    android:maxWidth="260dp"
                     android:src="@drawable/corestudio_card"
                     android:scaleType="fitCenter"
                     android:contentDescription="@null" />
 
-                <!-- Shine overlay -->
+                <!-- Shine -->
                 <ImageView
                     android:id="@+id/shineStudio"
                     android:layout_width="match_parent"
