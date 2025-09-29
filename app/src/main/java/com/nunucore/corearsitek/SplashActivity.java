@@ -1,7 +1,9 @@
 package com.nunucore.corearsitek;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -34,12 +36,26 @@ public class SplashActivity extends AppCompatActivity {
         // Shine untuk Core Studio
         ImageView shineStudio = findViewById(R.id.shineStudio);
         startShineAnimation(shineStudio);
+
+        // ✅ Klik card CoreArsitek
+        View cardArsitek = findViewById(R.id.cardCoreArsitek);
+        cardArsitek.setOnClickListener(v -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            intent.putExtra("url", "https://corearsitek.id");
+            startActivity(intent);
+        });
+
+        // ✅ Klik card CoreStudio
+        View cardStudio = findViewById(R.id.cardCoreStudio);
+        cardStudio.setOnClickListener(v -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            intent.putExtra("url", "https://corestudio.id");
+            startActivity(intent);
+        });
     }
 
     private void setupBlur(BlurView blurView) {
-        float radius = 30f;
-
-        // Root view harus ViewGroup
+        float radius = 20f;
         ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
         Drawable windowBackground = getWindow().getDecorView().getBackground();
 
@@ -52,7 +68,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startShineAnimation(ImageView shineView) {
-        // translate dari kiri-atas ke kanan-bawah melewati view
         TranslateAnimation anim = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, -1.5f,
                 Animation.RELATIVE_TO_SELF, 1.5f,
