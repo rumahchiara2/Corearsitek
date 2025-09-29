@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace "com.yoga4arch.academy"
+    namespace "com.nunucore.corearsitek"
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.yoga4arch.academy"
+        applicationId "com.nunucore.corearsitek"
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -19,7 +19,7 @@ android {
     signingConfigs {
         release {
             // File keystore harus ada di root project atau sesuaikan path-nya
-            storeFile file("yoga.jks")
+            storeFile file("core.jks")
             storePassword System.getenv("KEYSTORE_PASSWORD")
             keyAlias System.getenv("KEY_ALIAS")
             keyPassword System.getenv("KEY_PASSWORD")
@@ -50,8 +50,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-    implementation 'com.google.code.gson:gson:2.10.1'
     implementation "androidx.cardview:cardview:1.0.0"
 
     testImplementation 'junit:junit:4.13.2'

@@ -1,4 +1,4 @@
-package com.yoga4arch.academy;
+package com.nunucore.corearsitek;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.webkit.*;
 import androidx.annotation.Nullable;
 
 public class WebViewActivity extends Activity {
-    private static final String URL = "https://yoga4archacademy.cloud";
+    private static final String URL = "https://corearsitek.id";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

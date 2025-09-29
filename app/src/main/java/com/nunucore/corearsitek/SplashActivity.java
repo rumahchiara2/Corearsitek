@@ -1,4 +1,4 @@
-package com.yoga4arch.academy;
+package com.nunucore.corearsitek;
 
 import android.content.Intent;
 import android.os.Bundle;
