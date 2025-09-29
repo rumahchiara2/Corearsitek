@@ -1,5 +1,7 @@
 package com.nunucore.corearsitek;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -26,11 +29,39 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
 
+        // Fit ke layar
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
 
-        webView.setWebViewClient(new WebViewClient());
+        // Custom WebViewClient
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url.startsWith("http://") || url.startsWith("https://")) {
+                    // tetap buka di WebView
+                    return false;
+                } else if (url.startsWith("tel:") ||
+                           url.startsWith("mailto:") ||
+                           url.startsWith("whatsapp:") ||
+                           url.startsWith("geo:")) {
+                    // buka di aplikasi eksternal
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                    return true;
+                } else {
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return true;
+                    }
+                }
+            }
+        });
 
+        // Ambil URL dari SplashActivity
         String url = getIntent().getStringExtra("url");
         if (url != null) {
             webView.loadUrl(url);

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nunucore.corearsitek">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- SplashActivity jadi launcher -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -20,12 +22,10 @@
             </intent-filter>
         </activity>
 
-        <!-- MainActivity untuk WebView -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
     </application>
-
 </manifest>
