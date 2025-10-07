@@ -1,13 +1,18 @@
 package com.nunucore.corearsitek;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import androidx.cardview.widget.CardView;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 public class LanguageSelectActivity extends AppCompatActivity {
 
@@ -26,7 +31,11 @@ public class LanguageSelectActivity extends AppCompatActivity {
         ImageView flagEnglish = findViewById(R.id.flagEnglish);
         ImageView flagIndonesia = findViewById(R.id.flagIndonesia);
 
-        // Animasi spin ketika diklik
+        // setup blur background
+        setupBlur(findViewById(R.id.blurCardEnglish));
+        setupBlur(findViewById(R.id.blurCardIndonesia));
+
+        // Click events
         cardEnglish.setOnClickListener(v -> {
             animateSpin(flagEnglish);
             openWeb(baseUrl);
@@ -38,13 +47,26 @@ public class LanguageSelectActivity extends AppCompatActivity {
         });
     }
 
+    private void setupBlur(BlurView blurView) {
+        float radius = 20f;
+        ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
+        Drawable windowBackground = getWindow().getDecorView().getBackground();
+
+        blurView.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(this))
+                .setBlurRadius(radius)
+                .setBlurAutoUpdate(true)
+                .setHasFixedTransformationMatrix(true);
+    }
+
     private void animateSpin(ImageView imageView) {
         RotateAnimation rotate = new RotateAnimation(
                 0, 360,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f
         );
-        rotate.setDuration(500);
+        rotate.setDuration(600);
         imageView.startAnimation(rotate);
     }
 
@@ -52,6 +74,7 @@ public class LanguageSelectActivity extends AppCompatActivity {
         Intent intent = new Intent(LanguageSelectActivity.this, MainActivity.class);
         intent.putExtra("url", url);
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
 }
