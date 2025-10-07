@@ -3,18 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@drawable/bg_language">
 
-    <!-- Background -->
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg_language"
-        android:scaleType="centerCrop"
-        android:alpha="0.35" />
-
-    <!-- Title -->
     <TextView
         android:id="@+id/selectLanguageText"
         android:layout_width="wrap_content"
