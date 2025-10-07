@@ -4,5 +4,11 @@
     <color name="teal_200">#03DAC5</color>
     <color name="ic_launcher_background">#FFFFFF</color>
     <color name="darker_gray">#757575</color>
-
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent_white">#30FFFFFF</color> 
+    <color name="glass_stroke">#55FFFFFF</color>      
+    <color name="blur_tint">#20FFFFFF</color>         
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#CCFFFFFF</color>
 </resources>
