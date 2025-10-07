@@ -28,10 +28,6 @@ public class LanguageSelectActivity extends AppCompatActivity {
         baseUrl = getIntent().getStringExtra("baseUrl");
         if (baseUrl == null) baseUrl = "https://corearsitek.id";
 
-        // Setup blur
-        setupBlur(findViewById(R.id.blurEnglish));
-        setupBlur(findViewById(R.id.blurIndonesia));
-
         CardView cardEnglish = findViewById(R.id.cardEnglish);
         CardView cardIndonesia = findViewById(R.id.cardIndonesia);
         ImageView flagEnglish = findViewById(R.id.flagEnglish);
