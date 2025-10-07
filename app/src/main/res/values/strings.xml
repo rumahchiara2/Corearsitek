@@ -2,4 +2,17 @@
     <string name="app_name">CoreArsitek</string>
     <string name="corearsitek">CoreArsitek</string>
     <string name="corestudio">CoreStudio</string>
+
+    <!-- 🏳️ Language Selection -->
+    <string name="select_language">Select Language</string>
+    <string name="flag_english">English Flag</string>
+    <string name="flag_indonesia">Indonesian Flag</string>
+    <string name="english">English</string>
+    <string name="indonesia">Indonesia</string>
+
+    <!-- 🔘 Common UI Texts (optional, untuk reuse di kemudian hari) -->
+    <string name="loading">Loading...</string>
+    <string name="retry">Retry</string>
+    <string name="back">Back</string>
+    <string name="exit_app">Exit App</string>
 </resources>
