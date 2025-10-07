@@ -21,33 +21,19 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Setup Blur untuk Core Arsitek
-        BlurView blurArsitek = findViewById(R.id.blurCardArsitek);
-        setupBlur(blurArsitek);
+        setupBlur(findViewById(R.id.blurCardArsitek));
+        setupBlur(findViewById(R.id.blurCardStudio));
 
-        // Setup Blur untuk Core Studio
-        BlurView blurStudio = findViewById(R.id.blurCardStudio);
-        setupBlur(blurStudio);
+        startShineAnimation(findViewById(R.id.shineArsitek));
+        startShineAnimation(findViewById(R.id.shineStudio));
 
-        // Shine untuk Core Arsitek
-        ImageView shineArsitek = findViewById(R.id.shineArsitek);
-        startShineAnimation(shineArsitek);
-
-        // Shine untuk Core Studio
-        ImageView shineStudio = findViewById(R.id.shineStudio);
-        startShineAnimation(shineStudio);
-
-        // Klik card CoreArsitek
-        View cardArsitek = findViewById(R.id.cardCoreArsitek);
-        cardArsitek.setOnClickListener(v -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            intent.putExtra("url", "https://corearsitek.id");
+        findViewById(R.id.cardCoreArsitek).setOnClickListener(v -> {
+            Intent intent = new Intent(SplashActivity.this, LanguageSelectActivity.class);
+            intent.putExtra("baseUrl", "https://corearsitek.id");
             startActivity(intent);
         });
 
-        // Klik card CoreStudio
-        View cardStudio = findViewById(R.id.cardCoreStudio);
-        cardStudio.setOnClickListener(v -> {
+        findViewById(R.id.cardCoreStudio).setOnClickListener(v -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             intent.putExtra("url", "https://corestudio.id");
             startActivity(intent);
@@ -77,7 +63,6 @@ public class SplashActivity extends AppCompatActivity {
         anim.setDuration(2500);
         anim.setRepeatCount(Animation.INFINITE);
         anim.setRepeatMode(Animation.RESTART);
-
         shineView.startAnimation(anim);
     }
 }
