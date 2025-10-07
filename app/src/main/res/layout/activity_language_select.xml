@@ -10,8 +10,8 @@
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:src="@drawable/bg_language"
+        android:scaleType="centerCrop"
         android:alpha="0.35" />
 
     <!-- Title -->
@@ -26,77 +26,97 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp" />
 
-    <!-- Container for language cards -->
+    <!-- Container -->
     <LinearLayout
         android:id="@+id/languageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="120dp"
         android:gravity="center"
         android:orientation="vertical">
 
-        <!-- Card English -->
+        <!-- English Card -->
         <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blurCardEnglish"
-            android:layout_width="250dp"
-            android:layout_height="140dp"
-            android:layout_margin="15dp"
+            android:id="@+id/blurEnglish"
+            android:layout_width="260dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
             android:clipToOutline="true"
             android:background="@drawable/glass_card_background">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEnglish"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                app:cardCornerRadius="22dp"
+                app:cardElevation="6dp"
+                android:backgroundTint="@android:color/transparent">
 
-                <ImageView
-                    android:id="@+id/flagEnglish"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_flag_us" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/flag_english"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/flagEnglish"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/ic_flag_us"
+                        android:contentDescription="@string/flag_english" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/flag_english"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </eightbitlab.com.blurview.BlurView>
 
-        <!-- Card Indonesia -->
+        <!-- Indonesian Card -->
         <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blurCardIndonesia"
-            android:layout_width="250dp"
-            android:layout_height="140dp"
-            android:layout_margin="15dp"
+            android:id="@+id/blurIndonesia"
+            android:layout_width="260dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
             android:clipToOutline="true"
             android:background="@drawable/glass_card_background">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardIndonesia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                app:cardCornerRadius="22dp"
+                app:cardElevation="6dp"
+                android:backgroundTint="@android:color/transparent">
 
-                <ImageView
-                    android:id="@+id/flagIndonesia"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_flag_id" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/flag_indonesia"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/flagIndonesia"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/ic_flag_id"
+                        android:contentDescription="@string/flag_indonesia" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/flag_indonesia"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </eightbitlab.com.blurview.BlurView>
 
     </LinearLayout>
