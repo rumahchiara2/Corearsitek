@@ -3,112 +3,100 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_language">
+    android:background="@color/black">
 
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_language"
+        android:alpha="0.35" />
+
+    <!-- Title -->
     <TextView
-        android:id="@+id/titleSelectLanguage"
+        android:id="@+id/selectLanguageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Language"
+        android:text="@string/select_language"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp" />
 
+    <!-- Container for language cards -->
     <LinearLayout
         android:id="@+id/languageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titleSelectLanguage"
-        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="100dp"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <!-- BlurView English -->
+        <!-- Card English -->
         <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blurEnglish"
-            android:layout_width="260dp"
-            android:layout_height="160dp"
-            android:layout_marginBottom="30dp"
+            android:id="@+id/blurCardEnglish"
+            android:layout_width="250dp"
+            android:layout_height="140dp"
+            android:layout_margin="15dp"
             android:clipToOutline="true"
-            android:background="@android:color/transparent"
-            app:blurOverlayColor="#40FFFFFF">
+            android:background="@drawable/glass_card_background">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardEnglish"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                android:background="@android:color/transparent">
+                android:orientation="vertical"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/flagEnglish"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_flag_us" />
 
-                    <ImageView
-                        android:id="@+id/flagEnglish"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/ic_flag_us"
-                        android:contentDescription="@string/flag_english" />
-
-                    <TextView
-                        android:id="@+id/textEnglish"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="English"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_english"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
         </eightbitlab.com.blurview.BlurView>
 
-        <!-- BlurView Indonesia -->
+        <!-- Card Indonesia -->
         <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blurIndonesia"
-            android:layout_width="260dp"
-            android:layout_height="160dp"
+            android:id="@+id/blurCardIndonesia"
+            android:layout_width="250dp"
+            android:layout_height="140dp"
+            android:layout_margin="15dp"
             android:clipToOutline="true"
-            android:background="@android:color/transparent"
-            app:blurOverlayColor="#40FFFFFF">
+            android:background="@drawable/glass_card_background">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardIndonesia"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                android:background="@android:color/transparent">
+                android:orientation="vertical"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/flagIndonesia"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_flag_id" />
 
-                    <ImageView
-                        android:id="@+id/flagIndonesia"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/ic_flag_id"
-                        android:contentDescription="@string/flag_indonesia" />
-
-                    <TextView
-                        android:id="@+id/textIndonesia"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Indonesia"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_indonesia"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
         </eightbitlab.com.blurview.BlurView>
 
     </LinearLayout>
