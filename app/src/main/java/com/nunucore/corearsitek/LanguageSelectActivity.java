@@ -3,8 +3,12 @@ package com.nunucore.corearsitek;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
@@ -31,18 +35,19 @@ public class LanguageSelectActivity extends AppCompatActivity {
         ImageView flagEnglish = findViewById(R.id.flagEnglish);
         ImageView flagIndonesia = findViewById(R.id.flagIndonesia);
 
-        // setup blur background
+        // Setup blur untuk efek kaca
         setupBlur(findViewById(R.id.blurCardEnglish));
         setupBlur(findViewById(R.id.blurCardIndonesia));
 
-        // Click events
+        // Klik English
         cardEnglish.setOnClickListener(v -> {
-            animateSpin(flagEnglish);
+            animateFlip(flagEnglish);
             openWeb(baseUrl);
         });
 
+        // Klik Indonesia
         cardIndonesia.setOnClickListener(v -> {
-            animateSpin(flagIndonesia);
+            animateFlip(flagIndonesia);
             openWeb(baseUrl + "/id/");
         });
     }
@@ -60,21 +65,40 @@ public class LanguageSelectActivity extends AppCompatActivity {
                 .setHasFixedTransformationMatrix(true);
     }
 
-    private void animateSpin(ImageView imageView) {
-        RotateAnimation rotate = new RotateAnimation(
-                0, 360,
+    private void animateFlip(ImageView flag) {
+        Animation scaleDown = new ScaleAnimation(
+                1f, 0f, 1f, 1f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f
-        );
-        rotate.setDuration(600);
-        imageView.startAnimation(rotate);
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleDown.setDuration(150);
+        scaleDown.setInterpolator(new AccelerateDecelerateInterpolator());
+
+        Animation scaleUp = new ScaleAnimation(
+                0f, 1f, 1f, 1f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleUp.setDuration(150);
+        scaleUp.setStartOffset(150);
+        scaleUp.setInterpolator(new AccelerateDecelerateInterpolator());
+
+        AnimationSet flipAnim = new AnimationSet(false);
+        flipAnim.addAnimation(scaleDown);
+        flipAnim.addAnimation(scaleUp);
+        flag.startAnimation(flipAnim);
     }
 
     private void openWeb(String url) {
+        flagDelay();
         Intent intent = new Intent(LanguageSelectActivity.this, MainActivity.class);
         intent.putExtra("url", url);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
+    }
+
+    private void flagDelay() {
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ignored) {}
     }
 }

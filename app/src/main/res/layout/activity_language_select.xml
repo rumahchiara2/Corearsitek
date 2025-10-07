@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/bg_glass_gradient"
     tools:context=".LanguageSelectActivity">
 
     <TextView
         android:id="@+id/tvSelectLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/select_language"
-        android:textColor="@android:color/white"
+        android:text="Select Language"
+        android:textColor="#FFFFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp" />
 
-    <!-- English Card -->
+    <!-- Card English -->
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/blurCardEnglish"
         android:layout_width="280dp"
@@ -32,9 +32,9 @@
             android:id="@+id/cardEnglish"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            android:background="@android:color/transparent">
+            android:background="@android:color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,23 +44,24 @@
 
                 <ImageView
                     android:id="@+id/flagEnglish"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:src="@drawable/ic_flag_us"
                     android:contentDescription="@string/flag_english" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/english"
-                    android:textColor="@android:color/white"
+                    android:text="English"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:textSize="16sp"
                     android:layout_marginTop="10dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </eightbitlab.com.blurview.BlurView>
 
-    <!-- Indonesia Card -->
+    <!-- Card Indonesia -->
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/blurCardIndonesia"
         android:layout_width="280dp"
@@ -74,9 +75,9 @@
             android:id="@+id/cardIndonesia"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            android:background="@android:color/transparent">
+            android:background="@android:color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,16 +87,17 @@
 
                 <ImageView
                     android:id="@+id/flagIndonesia"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:src="@drawable/ic_flag_id"
                     android:contentDescription="@string/flag_indonesia" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/indonesia"
-                    android:textColor="@android:color/white"
+                    android:text="Indonesia"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:textSize="16sp"
                     android:layout_marginTop="10dp" />
             </LinearLayout>
