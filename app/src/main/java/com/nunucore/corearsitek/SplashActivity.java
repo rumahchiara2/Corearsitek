@@ -21,26 +21,34 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // Setup efek blur untuk kedua card
         setupBlur(findViewById(R.id.blurCardArsitek));
         setupBlur(findViewById(R.id.blurCardStudio));
 
+        // Animasi shine untuk kedua card
         startShineAnimation(findViewById(R.id.shineArsitek));
         startShineAnimation(findViewById(R.id.shineStudio));
 
+        // Klik card CoreArsitek → masuk ke LanguageSelectActivity
         findViewById(R.id.cardCoreArsitek).setOnClickListener(v -> {
             Intent intent = new Intent(SplashActivity.this, LanguageSelectActivity.class);
             intent.putExtra("baseUrl", "https://corearsitek.id");
             startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
 
+        // Klik card CoreStudio → langsung ke MainActivity (tanpa pilih bahasa)
         findViewById(R.id.cardCoreStudio).setOnClickListener(v -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             intent.putExtra("url", "https://corestudio.id");
             startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
     }
 
     private void setupBlur(BlurView blurView) {
+        if (blurView == null) return; // prevent crash jika ID tidak ditemukan
+
         float radius = 20f;
         ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
         Drawable windowBackground = getWindow().getDecorView().getBackground();
@@ -54,6 +62,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startShineAnimation(ImageView shineView) {
+        if (shineView == null) return; // prevent crash jika ID tidak ditemukan
+
         TranslateAnimation anim = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, -1.5f,
                 Animation.RELATIVE_TO_SELF, 1.5f,
