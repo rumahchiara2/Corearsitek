@@ -1,22 +1,14 @@
 package com.nunucore.corearsitek;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.ScaleAnimation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import eightbitlab.com.blurview.BlurView;
-import eightbitlab.com.blurview.RenderScriptBlur;
 
 public class LanguageSelectActivity extends AppCompatActivity {
 
@@ -27,78 +19,56 @@ public class LanguageSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_select);
 
+        // Ambil baseUrl dari Intent, dengan default jika null
         baseUrl = getIntent().getStringExtra("baseUrl");
-        if (baseUrl == null) baseUrl = "https://corearsitek.id";
+        if (baseUrl == null || baseUrl.isEmpty()) {
+            baseUrl = "https://corearsitek.id";
+        }
 
+        // Inisialisasi view
         CardView cardEnglish = findViewById(R.id.cardEnglish);
         CardView cardIndonesia = findViewById(R.id.cardIndonesia);
         ImageView flagEnglish = findViewById(R.id.flagEnglish);
         ImageView flagIndonesia = findViewById(R.id.flagIndonesia);
+        TextView textEnglish = findViewById(R.id.textEnglish);
+        TextView textIndonesia = findViewById(R.id.textIndonesia);
 
-        // Setup blur untuk efek kaca
-        setupBlur(findViewById(R.id.blurCardEnglish));
-        setupBlur(findViewById(R.id.blurCardIndonesia));
+        // Pastikan semua view ada
+        if (cardEnglish == null || cardIndonesia == null) {
+            finish(); // jika layout tidak ditemukan, langsung keluar dengan aman
+            return;
+        }
 
         // Klik English
         cardEnglish.setOnClickListener(v -> {
-            animateFlip(flagEnglish);
-            openWeb(baseUrl);
+            startFlagSpin(flagEnglish);
+            openMainActivity(baseUrl + "/");
         });
 
         // Klik Indonesia
         cardIndonesia.setOnClickListener(v -> {
-            animateFlip(flagIndonesia);
-            openWeb(baseUrl + "/id/");
+            startFlagSpin(flagIndonesia);
+            openMainActivity(baseUrl + "/id/");
         });
     }
 
-    private void setupBlur(BlurView blurView) {
-        float radius = 20f;
-        ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
-        Drawable windowBackground = getWindow().getDecorView().getBackground();
+    private void startFlagSpin(ImageView flagView) {
+        if (flagView == null) return;
 
-        blurView.setupWith(rootView)
-                .setFrameClearDrawable(windowBackground)
-                .setBlurAlgorithm(new RenderScriptBlur(this))
-                .setBlurRadius(radius)
-                .setBlurAutoUpdate(true)
-                .setHasFixedTransformationMatrix(true);
+        RotateAnimation rotate = new RotateAnimation(
+                0f, 360f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+        );
+        rotate.setDuration(600);
+        flagView.startAnimation(rotate);
     }
 
-    private void animateFlip(ImageView flag) {
-        Animation scaleDown = new ScaleAnimation(
-                1f, 0f, 1f, 1f,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        scaleDown.setDuration(150);
-        scaleDown.setInterpolator(new AccelerateDecelerateInterpolator());
-
-        Animation scaleUp = new ScaleAnimation(
-                0f, 1f, 1f, 1f,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        scaleUp.setDuration(150);
-        scaleUp.setStartOffset(150);
-        scaleUp.setInterpolator(new AccelerateDecelerateInterpolator());
-
-        AnimationSet flipAnim = new AnimationSet(false);
-        flipAnim.addAnimation(scaleDown);
-        flipAnim.addAnimation(scaleUp);
-        flag.startAnimation(flipAnim);
-    }
-
-    private void openWeb(String url) {
-        flagDelay();
+    private void openMainActivity(String url) {
         Intent intent = new Intent(LanguageSelectActivity.this, MainActivity.class);
         intent.putExtra("url", url);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
-    }
-
-    private void flagDelay() {
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException ignored) {}
     }
 }
