@@ -5,8 +5,8 @@
 
     <!-- 🏳️ Language Selection -->
     <string name="select_language">Select Language</string>
-    <string name="flag_english">English Flag</string>
-    <string name="flag_indonesia">Indonesian Flag</string>
+    <string name="flag_english">English</string>
+    <string name="flag_indonesia">Indonesian</string>
     <string name="english">English</string>
     <string name="indonesia">Indonesia</string>
 
